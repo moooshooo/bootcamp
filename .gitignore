@@ -1,0 +1,14 @@
+# Ignorera alla .log-filer
+#*.log
+
+# Men behåll just error.log
+#!error.log
+
+# Ignorera hela mappen uploads
+#uploads/
+
+# Men spara en speciell bild
+#!uploads/logo.png
+
+#Filer jag vill ignore
+.vscode

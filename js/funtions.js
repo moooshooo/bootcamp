@@ -52,3 +52,9 @@ const ak47 = {
 }
 
 ak47.shoot() // Anropas också. Använder du shoot kan du visa det i terminalen.
+
+//Funktion som ger en booleansk output dvs True eller False
+function largerThanTen(num) {
+    return num > 10
+}
+console.log(largerThanTen(15))

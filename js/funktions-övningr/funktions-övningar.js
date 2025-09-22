@@ -11,16 +11,16 @@ Tips:
 - Kör sedan `node funktions-facit.js` för att validera dina svar!
 */
 
-console.log("=== JAVASCRIPT ÖVNINGAR - FUNKTIONER OCH VILLKOR ===\n");
-
+/* console.log("=== JAVASCRIPT ÖVNINGAR - FUNKTIONER OCH VILLKOR ===\n");
+ */
 /*
 ÖVNING 1: ÅLDERSKONTROLL
 ========================
 */
 
-console.log("1. ÅLDERSKONTROLL");
+/* console.log("1. ÅLDERSKONTROLL");
 console.log("-----------------");
-
+ */
 // 1a) Skapa en funktion som heter "checkAge" som tar age som parameter
 //     Funktionen ska returnera true om personen är myndig (18+), annars false
 // Skriv din kod här:
@@ -70,32 +70,29 @@ ageCategory(12) */
 //     - checkAge(25) och ageCategory(25)
 //     - checkAge(70) och ageCategory(70)
 // Skriv din kod här:
-
-console.log("1c");
 /* 
+console.log("1c");
 
 const ageCategory = (age) => {
     if (age <= 12) {
-        "Bebis"
+        return "Bebis"
     } else if (age >= 13 && age <= 17) {
-        "Ungdom"
+        return "Ungdom"
     } else if (age >= 18 && age <= 65) {
-        "Vuxen o vild"
+        return "Vuxen o vild"
     } else {
-        "Kista"
+        return "Kista"
     }
-    return age
 }
- */
-const checkAge = a => a >= 18;
 
-checkAge(19)
+const checkAge = age2 => age2 >= 18; !important
+ */
 /* 
 const resultat = checkAge */
-console.log(checkAge)
-
-console.log("\n");
-
+/* console.log(ageCategory(6), checkAge(6))
+ */
+/* console.log("\n");
+ */
 /*
 ÖVNING 2: BETYGSYSTEM
 ====================
@@ -113,18 +110,64 @@ console.log("--------------");
 //     - Under 60: "F"
 // Skriv din kod här:
 
+/* const grade = 59
+const calculateGrade = (points) => {
+    if(points >= 90){
+        return "A"
+    } else if (points >= 80) {
+        return "B"
+    }else if (points >= 70) {
+        return "C"
+    }else if (points >= 60) {
+        return "D"
+    }else if (points < 60) {
+        return "F"
+    }
+}
+const resultGrade = calculateGrade(grade) */
 
 // 2b) Skapa en funktion "isPassed" som tar points som parameter
 //     Returnera true om betyget är godkänt (60+), annars false
 // Skriv din kod här:
 
+/* const isPassed = (points) => points >=60
+const resultIsPassed = isPassed(grade) */
+
+/* console.log(resultGrade, resultIsPassed) */
 
 // 2c) Skapa en funktion "gradeMessage" som tar name och points som parametrar
 //     Returnera en komplett mening, t.ex: "Anna fick betyget B och är godkänd"
 //     Använd dina andra funktioner inuti denna funktion!
 // Skriv din kod här:
 
+//const gotPoints = 59
 
+const isPassed = (gotPoints) => gotPoints >= 60
+//const resultIsPassed = isPassed(grade)
+
+const gradeMessage = (studentNamn,gotPoints) => {
+    const calculateGrade = (gotPoints) => {
+    if(gotPoints >= 90){
+            return "A"
+        } else if (gotPoints >= 80) {
+            return "B"
+        }else if (gotPoints >= 70) {
+            return "C"
+        }else if (gotPoints >= 60) {
+            return "D"
+        }else if (gotPoints < 60) {
+            return "F"
+        }
+    }
+    const resultIsPassedText = isPassed ? "godkänd" : "underkänd"
+    console.log(`${studentNamn} fick betyg ${calculateGrade(gotPoints)}, dvs ${gotPoints} poäng och är därmed ${resultIsPassedText}`)
+}
+
+console.log(gradeMessage("Pelle",69))
+
+/* const resultIsPassedText = resultIsPassed ? "godkänd" : "underkänd"
+console.log(`Pelle fick betyg ${resultGrade} och är ${resultIsPassedText}`)
+ */
 // 2d) Testa funktionen gradeMessage med:
 //     - gradeMessage("Erik", 85)
 //     - gradeMessage("Sara", 45)

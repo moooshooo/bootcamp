@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mos JS</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        border: 2px solid #1e1e1e;
+        margin: 0 auto;
+        box-shadow: 5px 5px #ccc;
+      }/* 
+      button {
+        margin: 5px;
+        background-color: aqua;
+      } */
+       .red {
+        background-color: red;
+       }
+       #notification{
+        background-color: yellow;
+       }
+    </style>
+  </head>
+  <body>
+    <h1>Välkommen till DOM-manipulation exempel</h1>
+    <p id="notification">New message</p>
+    <p id="message" class="classMessage">Detta är ett exempel som kommer att ändras</p>
+
+    <p id="message" class="classMessage">Del två av denna text</p>
+
+    <p id="message" class="classMessage">Del tre av denna exempel</p>
+
+    <div id="MyBox" class="box"></div>
+    <button onclick="changeText()">Change text</button>
+    <button onclick="testArrowFuncChangeText()">Change text med testArrowFunc</button>
+    <button onclick="ArrowFuncChangeText()">Change text med arrowFunc</button>
+    <button onclick="changeColor()"> Change box color</button>
+    <button onclick="hideTitle()" id="titleBtn">Hide title</title></button>
+
+    <script src="mosScript.js"></script>
+  </body>
+</html>

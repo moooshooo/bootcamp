@@ -97,10 +97,10 @@ const resultat = checkAge */
 ÖVNING 2: BETYGSYSTEM
 ====================
 */
-
+/* 
 console.log("2. BETYGSYSTEM");
 console.log("--------------");
-
+ */
 // 2a) Skapa en funktion "calculateGrade" som tar points (0-100) som parameter
 //     Returnera bokstavsbetyg enligt:
 //     - 90-100: "A"
@@ -141,10 +141,8 @@ const resultIsPassed = isPassed(grade) */
 // Skriv din kod här:
 
 //const gotPoints = 59
-
-const isPassed = (gotPoints) => gotPoints >= 60
 //const resultIsPassed = isPassed(grade)
-
+/* 
 const gradeMessage = (studentNamn,gotPoints) => {
     const calculateGrade = (gotPoints) => {
     if(gotPoints >= 90){
@@ -159,11 +157,34 @@ const gradeMessage = (studentNamn,gotPoints) => {
             return "F"
         }
     }
-    const resultIsPassedText = isPassed ? "godkänd" : "underkänd"
-    console.log(`${studentNamn} fick betyg ${calculateGrade(gotPoints)}, dvs ${gotPoints} poäng och är därmed ${resultIsPassedText}`)
+    const isPassed = (gotPoints) => gotPoints >= 60
+    const resultIsPassedText = isPassed(gotPoints) ? "godkänd" : "underkänd"
+    return `${studentNamn} fick betyg ${calculateGrade(gotPoints)}, dvs ${gotPoints} poäng och är därmed ${resultIsPassedText}`
+} */
+/* 
+const gradeMessage = (studentNamn,gotPoints) => {
+const calculateGrade = (gotPoints) => {
+if(gotPoints >= 90){
+        return "A"
+    } else if (gotPoints >= 80) {
+        return "B"
+    }else if (gotPoints >= 70) {
+        return "C"
+    }else if (gotPoints >= 60) {
+        return "D"
+    }else if (gotPoints < 60) {
+        return "F"
+    }
+}
+const isPassed = (gotPoints) => gotPoints >= 60
+const resultIsPassedText = isPassed(gotPoints) ? "godkänd" : "underkänd"
+return `${studentNamn} fick betyg ${calculateGrade(gotPoints)}, dvs ${gotPoints} poäng och är därmed ${resultIsPassedText}`
 }
 
-console.log(gradeMessage("Pelle",69))
+console.log(gradeMessage("Pelle",60))
+
+console.log("test") */
+
 
 /* const resultIsPassedText = resultIsPassed ? "godkänd" : "underkänd"
 console.log(`Pelle fick betyg ${resultGrade} och är ${resultIsPassedText}`)
@@ -174,8 +195,8 @@ console.log(`Pelle fick betyg ${resultGrade} och är ${resultIsPassedText}`)
 //     - gradeMessage("Lisa", 92)
 // Skriv din kod här:
 
-
-console.log("\n");
+/* 
+console.log("\n"); */
 
 /*
 ÖVNING 3: PRISBERÄKNING
@@ -194,6 +215,22 @@ console.log("----------------");
 //     Returnera det nya priset efter rabatt
 // Skriv din kod här:
 
+const calculateDiscount = (discountCode, price) => {
+    let discountAmount
+    if (discountCode == "student") {
+        discountAmount = 15
+    } else if (discountCode == "senior") {
+        discountAmount = 20
+    } else if (discountCode == "VIP") {
+        discountAmount = 25
+    } else {
+        discountAmount = 0
+    }
+    let discountPrice = price - (price * discountAmount/100)
+    return discountPrice
+}
+/* 
+console.log(calculateDiscount("VIP",375)) */
 
 // 3b) Skapa en funktion "shippingCost" som tar price och deliveryCountry som parametrar
 //     Regler:
@@ -203,12 +240,27 @@ console.log("----------------");
 //     - Övriga länder: 200 kr frakt
 // Skriv din kod här:
 
+const shippingCost = (price, deliveryCountry) => {
+    if (price <= 500){
+        return 0
+    } else if (deliveryCountry == "Sverige") {
+        return 50
+    } else if (deliveryCountry == "Norge" || "Danmark") {
+        return 100
+    } else {return 200}
+}
+/* console.log(shippingCost(499,"Danmark")) */
 
 // 3c) Skapa en funktion "totalCost" som tar price, discountCode och deliveryCountry som parametrar
 //     Beräkna det totala priset med rabatt och frakt
 //     Använd dina andra funktioner!
 // Skriv din kod här:
 
+const totalCost = (price, discountCode, deliveryCountry) => calculateDiscount(discountCode, price) + shippingCost(price, deliveryCountry)
+
+console.log(`Priset för en student är ${totalCost(499, "student","Sverige")} `)
+console.log(`Priset för en VIP är ${totalCost(499, "VIP","Norge")} `)
+console.log(`Priset för en Invalid discount är ${totalCost(800, "rtdyfhjk","Finland")} `)
 
 // 3d) Testa totalCost med följande kombinationer:
 //     - totalCost(600, "STUDENT", "Sverige")
@@ -235,11 +287,22 @@ console.log("----------------");
 //     Returnera skattebeloppet (inte nettolönen)
 // Skriv din kod här:
 
+const calculateTax = (grossSalary) => {
+    if ( grossSalary < 20000) return 0
+    else if (grossSalary >= 20000 && grossSalary < 50000) return 30
+    else if (grossSalary > 50000) return 35
+}
+/* 
+console.log(calculateTax(50001)) */
 
 // 4b) Skapa en funktion "calculateNetSalary" som tar grossSalary som parameter
 //     Använd calculateTax funktionen för att beräkna nettolön
 // Skriv din kod här:
 
+const calculateNetSalary = (grossSalary) => grossSalary - (grossSalary *(calculateTax(grossSalary)/100))
+
+/* console.log(`Min skatt är ${calculateTax(20000)}% och efter lönen efter skatt är ${calculateNetSalary(20000)}kr`)
+ */
 
 // 4c) Skapa en funktion "salaryReport" som tar name och grossSalary som parametrar
 //     Returnera en rapport som visar:
@@ -250,13 +313,18 @@ console.log("----------------");
 //     Formatera som: "Erik: Brutto 45000 kr, Skatt 13500 kr, Netto 31500 kr"
 // Skriv din kod här:
 
-
+const salaryReport = (kons, grossSalary) => {
+    console.log(`${kons}: Brutto ${grossSalary}, skatt i kr ${calculateTax(grossSalary)/100 * grossSalary}, Netto ${grossSalary - (calculateTax(grossSalary)/100 * grossSalary)} kr `)
+}
 // 4d) Testa salaryReport med:
 //     - salaryReport("Maria", 35000)
 //     - salaryReport("Johan", 15000)
 //     - salaryReport("Anna", 60000)
 // Skriv din kod här:
 
+salaryReport("Maria", 35000)
+salaryReport("Johan", 15000)
+salaryReport("Anna", 60000)
 
 console.log("\n");
 
@@ -281,6 +349,26 @@ console.log("-------------------------------");
 //     Returnera ett objekt med all information
 // Skriv din kod här:
 
+const analyzeGame = (playerName, wins, losses, draws) => {
+    const totalGames = wins + losses + draws
+    const winRate = (wins / totalGames) * 100
+
+    const category = () => {
+        if (winRate >= 80) {
+            return "Mästare";
+        } else if (winRate >= 60 && winRate <= 79) {
+            return "Expert";
+        } else if (winRate >= 40 && winRate <= 59) {
+            return "Medel";
+        } else if (winRate >= 20 && winRate <= 39) {
+            return "Nybörjare";
+        } else {
+            return "Träning behövs";
+        }
+    }
+ return console.log(`Spelare: ${playerName} \n totala matcher: ${totalGames} \n Winrate: ${winRate}% \n Nivå: ${category()}`)
+}
+analyzeGame("Erik", 5,50,1)
 
 // 5b) Skapa en funktion "comparePlayers" som tar två playerObjects som parametrar
 //     (använd resultat från analyzeGame)

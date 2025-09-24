@@ -1,3 +1,8 @@
+/* 
+Author: Mos
+Date: 2025-09-24
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Asimovian&family=Bitcount+Single+Ink&display=swap');
 
 * {
@@ -45,37 +50,75 @@ body {
 }
 
 #inputField {
-flex: 3;
-border: 1px solid #999;
-border-radius: 5px;
-width: 200px;
-height: 40px;
-text-align: left;
-box-shadow: 1px 1px 5px 4px rgba(0,0,0,0.15) inset;
-padding: 5px 15px;
+    flex: 3;
+    border: 1px solid #999;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
+    text-align: left;
+    box-shadow: 1px 1px 5px 4px rgba(0,0,0,0.15) inset;
+    padding: 5px 15px;
 }
 
 .addBtn {
-flex: 1;
-border-radius: 50%;
-border: 3px solid #666;
-height: 50px;
-background-color: greenyellow;
-box-shadow: 1px 5px 5px 0px rgba(0,0,0,0.63);
+    flex: 1;
+    border-radius: 50%;
+    border: 3px solid #999;
+    height: 50px;
+    background-color: greenyellow;
+    box-shadow: 1px 3px 3px 0px rgba(133, 133, 133, 0.63);
 }
 
 .addBtn:hover {
     cursor: pointer;
-border-radius: 50%;
-border: 3px solid #999;
-height: 50px;
-background-color: greenyellow;
-box-shadow: 1px 5px 5px 0px rgba(0,0,0,0.63);
+    border-radius: 50%;
+    border: 3px solid #aaa;
+    height: 50px;
+    background-color: greenyellow;
+    box-shadow: 1px 3px 3px 0px rgba(99, 99, 99, 0.63);
 }
 
 .addBtn:active {
-    border: 3px solid #222;
+    border: 3px solid #cfcfcf;
 }
-.listItemContainer {
-    border: 1px dotted green;
+
+/* ================================
+   ===  List Styling  ===
+================================ */
+.listItem{
+    margin: 5px;
+    list-style: none;
+}
+.listItemContainer{
+    display: flex;
+    justify-content: space-between;
+    border: 1px dotted rgb(181, 181, 181);
+    border-radius: 5px;
+    background-color: #eee;
+    margin: 5px;
+    padding: 8px 20px;
+}
+.textP{
+    flex: 4;
+    margin: 4px;
+}
+.deleteBtn{
+    flex: 1;
+    border-radius: 20px;
+    border: 2px solid #999;
+    height: 20px;
+    background-color: red;
+    box-shadow: 1px 3px 3px 0px rgba(133, 133, 133, 0.63);
+    font-size: 8px;
+    color: #fff;
+    margin: 4px;
+}
+.deleteBtn:hover{
+    cursor: pointer;
+    box-shadow: 1px 3px 3px 0px rgba(88, 88, 88, 0.63);
+    font-size: 8px;
+    color: #eee;
+}
+.deleteBtn:active{
+    cursor: pointer;
 }

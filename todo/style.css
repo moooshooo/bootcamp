@@ -26,17 +26,15 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    min-width: 100vh;
     background-color: #eee;
 }
 
 .container {
     background-color: #ccc;
-    padding: 100px;
+    padding: 50px;
     border-radius: 15px;box-shadow: 1px 5px 5px 0px rgba(0,0,0,0.63);
-
-
 }
+
 .input-section{
     height: 50px;
     display: flex;
@@ -65,6 +63,7 @@ height: 50px;
 background-color: greenyellow;
 box-shadow: 1px 5px 5px 0px rgba(0,0,0,0.63);
 }
+
 .addBtn:hover {
     cursor: pointer;
 border-radius: 50%;
@@ -73,6 +72,10 @@ height: 50px;
 background-color: greenyellow;
 box-shadow: 1px 5px 5px 0px rgba(0,0,0,0.63);
 }
+
 .addBtn:active {
     border: 3px solid #222;
+}
+.listItemContainer {
+    border: 1px dotted green;
 }

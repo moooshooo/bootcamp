@@ -257,11 +257,11 @@ const shippingCost = (price, deliveryCountry) => {
 // Skriv din kod här:
 
 const totalCost = (price, discountCode, deliveryCountry) => calculateDiscount(discountCode, price) + shippingCost(price, deliveryCountry)
-
+/* 
 console.log(`Priset för en student är ${totalCost(499, "student","Sverige")} `)
 console.log(`Priset för en VIP är ${totalCost(499, "VIP","Norge")} `)
 console.log(`Priset för en Invalid discount är ${totalCost(800, "rtdyfhjk","Finland")} `)
-
+ */
 // 3d) Testa totalCost med följande kombinationer:
 //     - totalCost(600, "STUDENT", "Sverige")
 //     - totalCost(300, "VIP", "Norge") 
@@ -321,11 +321,11 @@ const salaryReport = (kons, grossSalary) => {
 //     - salaryReport("Johan", 15000)
 //     - salaryReport("Anna", 60000)
 // Skriv din kod här:
-
+/* 
 salaryReport("Maria", 35000)
 salaryReport("Johan", 15000)
 salaryReport("Anna", 60000)
-
+ */
 console.log("\n");
 
 /*
@@ -350,9 +350,9 @@ console.log("-------------------------------");
 // Skriv din kod här:
 
 const analyzeGame = (playerName, wins, losses, draws) => {
+
     const totalGames = wins + losses + draws
     const winRate = (wins / totalGames) * 100
-
     const category = () => {
         if (winRate >= 80) {
             return "Mästare";
@@ -366,16 +366,30 @@ const analyzeGame = (playerName, wins, losses, draws) => {
             return "Träning behövs";
         }
     }
- return console.log(`Spelare: ${playerName} \n totala matcher: ${totalGames} \n Winrate: ${winRate}% \n Nivå: ${category()}`)
+ return {playerName, winRate, category: category(), totalGames}
+ //console.log(` Spelare: ${playerName} \n Antal matcher: ${totalGames} \n Winrate: ${winRate}% \n Nivå: ${category()} \n`)
 }
-analyzeGame("Erik", 5,50,1)
-
+const Player1 = analyzeGame("Darun", 80,10,1)
+const Player2 = analyzeGame("Nana", 50,10,1)
 // 5b) Skapa en funktion "comparePlayers" som tar två playerObjects som parametrar
 //     (använd resultat från analyzeGame)
 //     Returnera vilken spelare som är bättre baserat på vinstprocent
 //     Format: "Erik är bättre än Sara (75% vs 45%)"
 // Skriv din kod här:
 
+/* console.log(` ${Player2.playerName} är bättre än ${Player1.playerName} med ${Player2.winRate.toFixed(1)}% vs ${Player1.winRate.toFixed(1)}%`) */
+
+const comparePlayers = () => {
+    if(Player1.winRate > Player2.winRate){
+        console.log(`${Player1.playerName} är bättre än ${Player2.playerName} med ${Player1.winRate.toFixed(1)}% vs ${Player2.winRate.toFixed(1)}%`)
+    }else if (Player2.winRate > Player1.winRate) {
+        console.log(`${Player2.playerName} är bättre än ${Player1.playerName} med ${Player2.winRate.toFixed(1)}% vs ${Player1.winRate.toFixed(1)}%`)
+    } else {
+        console.log("Funkar ej")
+    }
+}
+/* 
+comparePlayers() */
 
 // 5c) Skapa en funktion "recommendation" som tar ett playerObject som parameter
 //     Ge olika rekommendationer baserat på kategori:
@@ -386,7 +400,20 @@ analyzeGame("Erik", 5,50,1)
 //     - "Träning behövs": "Fokusera på grunderna"
 // Skriv din kod här:
 
-
+const recommendation = () => {
+    if(Player1.category == "Mästare"){
+        "Fortsätt dominera!"
+    }else if (Player1.category == "Expert"){
+        "Snart mästarnivå!"
+    }else if (Player1.category == "Medel"){
+        "Bra jobbat, fortsätt träna!"
+    }else if (Player1.category == "Nybörjare"){
+        "Träna mer för att förbättras"
+    }else {
+        "Fokusera på grunderna"
+    }
+}
+console.log(recommendation())
 // 5d) Testa med följande spelare:
 //     - Erik: 80 wins, 15 losses, 5 draws
 //     - Sara: 30 wins, 40 losses, 10 draws  

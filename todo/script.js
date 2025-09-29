@@ -1,6 +1,7 @@
 /* 
 Author: Mos
-Date: 2025-09-24
+Date: 2025-09-25
+Version: 0.2
  */
 
 console.log("Empowered by: MoS")
@@ -15,7 +16,12 @@ const addTask = () => {
     console.log("Startar addTask() funktionen")
     
     //Hämtar innehåll från fältet
-    const todoName = inputField.value
+    const todoName = inputField.value.trim()
+    //Validering: Kollar om todoName är tom
+    if (todoName ===""){
+        alert("Sopa! Skriv något innan du trycker.")
+        return // avbryt funktionen
+    }
     //Skriver ut todoName data som skrivit
     //console.log(todoName)
 
@@ -54,8 +60,11 @@ const addTask = () => {
     inputField.value = ""
 
     //Skapar en eventlistner som verkar vara en funtion som aktiveras när du klickar "click"
-    deleteBtn.addEventListener("click", () => {
+    /* deleteBtn.addEventListener("click", () => {
         listItem.remove()
-    })
-
+    }) */
+    //Alternativ att ta bortknappen
+    deleteBtn.onclick = () => {
+        taskList.removeChild(listItem)
+    }
 }

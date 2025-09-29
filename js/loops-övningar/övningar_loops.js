@@ -332,7 +332,6 @@ function createClassReport(classObj) {
 // Använd for...of för att skriva ut rapporter för alla klasser
 // Skriv din kod här:
 
-
 console.log("\n");
 
 /*

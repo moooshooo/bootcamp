@@ -369,8 +369,8 @@ const analyzeGame = (playerName, wins, losses, draws) => {
  return {playerName, winRate, category: category(), totalGames}
  //console.log(` Spelare: ${playerName} \n Antal matcher: ${totalGames} \n Winrate: ${winRate}% \n Nivå: ${category()} \n`)
 }
-const Player1 = analyzeGame("Darun", 80,10,1)
-const Player2 = analyzeGame("Nana", 50,10,1)
+const Player1 = analyzeGame("Darun", 80,10,5)
+const Player2 = analyzeGame("Nana", 78,1,10)
 // 5b) Skapa en funktion "comparePlayers" som tar två playerObjects som parametrar
 //     (använd resultat från analyzeGame)
 //     Returnera vilken spelare som är bättre baserat på vinstprocent
@@ -412,8 +412,10 @@ const recommendation = () => {
     }else {
         "Fokusera på grunderna"
     }
+    return Player1.category
 }
 console.log(recommendation())
+
 // 5d) Testa med följande spelare:
 //     - Erik: 80 wins, 15 losses, 5 draws
 //     - Sara: 30 wins, 40 losses, 10 draws  
